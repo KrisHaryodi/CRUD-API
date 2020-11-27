@@ -29,7 +29,7 @@
 
       $post_item = array(
         'idBooking' => $idBooking,
-        'namaUser' => $namaUser,
+        'idUser' => $idUser,
         'waktuMulai' => $waktuMulai,
         'waktuSelesai' => $waktuSelesai,
         'tahunBooking' => $tahunBooking,

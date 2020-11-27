@@ -22,7 +22,7 @@
   // Create array
   $post_arr = array(
     'idBooking' => $post->idBooking,
-    'namaUser' => $post->namaUser,
+    'idUser' => $post->idUser,
     'waktuMulai' => $post->waktuMulai,
     'waktuSelesai' => $post->waktuSelesai,
     'tahunBooking' => $post->tahunBooking,
