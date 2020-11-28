@@ -29,7 +29,7 @@
     'bulanBooking' => $post->bulanBooking,
     'tanggalBooking' => $post->tanggalBooking,
     'idRuangan' => $post->idRuangan,
-    'namaRuangan' => $post->namaRuangan
+    'hargaTotal' => $post->hargaTotal
   );
 
   // Make JSON

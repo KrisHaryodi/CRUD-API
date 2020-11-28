@@ -36,7 +36,7 @@
         'bulanBooking' => $bulanBooking,
         'tanggalBooking' => $tanggalBooking,
         'idRuangan' => $idRuangan,
-        'namaRuangan' => $namaRuangan
+        'hargaTotal' => $hargaTotal
       );
 
       // Push to "data"

@@ -25,7 +25,7 @@
     // Get Posts
    public function read() {
       // Create query
-      $query = 'SELECT i.idBooking, i.waktuMulai, i.waktuSelesai, i.tahunBooking, i.bulanBooking, i.tanggalBooking, u.idUser, r.namaRuangan, r.idRuangan
+      $query = 'SELECT i.idBooking, i.waktuMulai, i.waktuSelesai, i.tahunBooking, i.bulanBooking, i.tanggalBooking, u.idUser, i.hargaTotal, r.idRuangan
                                 FROM ' . $this->table . ' i JOIN User u ON i.idUser = u.idUser JOIN Ruangan r on i.idRuangan = r.idRuangan
                                 ORDER BY
                                   idbooking ASC';
@@ -42,7 +42,7 @@
     // Get Single Post
     public function read_single() {
           // Create query
-          $query = 'SELECT i.idBooking, i.waktuMulai, i.waktuSelesai, i.tahunBooking, i.bulanBooking, i.tanggalBooking, u.idUser, r.namaRuangan, r.idRuangan
+          $query = 'SELECT i.idBooking, i.waktuMulai, i.waktuSelesai, i.tahunBooking, i.bulanBooking, i.tanggalBooking, u.idUser, i.hargaTotal, r.idRuangan
                                     FROM ' . $this->table . ' i JOIN User u ON i.idUser = u.idUser JOIN Ruangan r on i.idRuangan = r.idRuangan
                                     WHERE
                                       idBooking = ?
