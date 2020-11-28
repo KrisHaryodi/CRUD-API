@@ -65,7 +65,7 @@
           $this->tahunBooking = $row['tahunBooking'];
           $this->bulanBooking = $row['bulanBooking'];
           $this->tanggalBooking = $row['tanggalBooking'];
-          $this->namaRuangan = $row['namaRuangan'];
+          $this->hargaTotal = $row['hargaTotal'];
           $this->idUser = $row['idUser'];
           $this->idBooking = $row['idBooking'];
           
