@@ -1,39 +1,29 @@
 <?php 
-  // Headers
-  header('Access-Control-Allow-Origin: *');
-  header('Content-Type: application/json');
-  header('Access-Control-Allow-Methods: POST');
-  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+$idBooking = '';
+$idRuangan = '';
+$idUser = '';
+$waktuMulai = '';
+$waktuSelesai = '';
+$tahunBooking = '';
+$bulanBooking = '';
+$tanggalBooking = '';
+$hargaTotal = '';
 
-  include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
+require_once('Database.php');
+$idBooking = $_POST['idBooking'];
+$idRuangan = $_POST['idRuangan'];
+$idUser = $_POST['idUser'];
+$waktuMulai = $_POST['waktuMulai'];
+$waktuSelesai = $_POST['waktuSelesai'];
+$tahunBooking = $_POST['tahunBooking'];
+$bulanBooking = $_POST['bulanBooking'];
+$tanggalBooking = $_POST['tanggalBooking'];
+$hargaTotal = $_POST['hargaTotal'];
 
-  // Instantiate DB & connect
-  $database = new Database();
-  $db = $database->connect();
-
-  // Instantiate blog post object
-  $post = new Post($db);
-
-  // Get raw posted data
-  $data = json_decode(file_get_contents("php://input"));
-
-  $post->idRuangan = $data->idRuangan;
-  $post->idUser = $data->idUser;
-  $post->waktuMulai = $data->waktuMulai;
-  $post->waktuSelesai = $data->waktuSelesai;
-  $post->tahunBooking = $data->tahunBooking;
-  $post->bulanBooking = $data->bulanBooking;
-  $post->tanggalBooking = $data->tanggalBooking;
-  $post->hargaTotal = $data->hargaTotal;
-
-  // Create post
-  if($post->create()) {
-    echo json_encode(
-      array('message' => 'Post Created')
-    );
-  } else {
-    echo json_encode(
-      array('message' => 'Post Not Created')
-    );
+$query = mysqli_query($conn, "INSERT INTO infobooking VALUES ('$idBooking','$idRuangan','$idUser','$waktuMulai','$waktuSelesai','$tahunBooking','$bulanBooking','$tanggalBooking','$hargaTotal')");
+if($query){
+    echo json_encode(array('message'=>' data successfully added.'));
+  }else{
+    echo json_encode(array('message'=>' data failed to add.'));
   }
+?>
