@@ -1,4 +1,5 @@
 <?php 
+$mysqli = new mysqli('localhost','root','','all_users');
 $idBooking = '';
 $idRuangan = '';
 $idUser = '';
@@ -9,7 +10,7 @@ $bulanBooking = '';
 $tanggalBooking = '';
 $hargaTotal = '';
 
-require_once('Database.php');
+if (isset($_POST['save'])){
 $idBooking = $_POST['idBooking'];
 $idRuangan = $_POST['idRuangan'];
 $idUser = $_POST['idUser'];
@@ -26,4 +27,5 @@ if($query){
   }else{
     echo json_encode(array('message'=>' data failed to add.'));
   }
+}
 ?>
