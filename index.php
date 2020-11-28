@@ -8,7 +8,7 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
     </head>
     <body>
-        <?php require_once 'process.php'; ?>
+        <?php require_once 'ruangan.php'; ?>
 
         <?php
         if (isset($_SESSION['message'])): ?>
