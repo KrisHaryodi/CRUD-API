@@ -4,7 +4,7 @@
   header('Content-Type: application/json');
 
   include_once '../../Database.php';
-  include_once '../../models/ruangan.php';
+  include_once '../../ruangan.php';
 
   // Instantiate DB & connect
   $database = new Database();
@@ -28,7 +28,6 @@
     'lokasiRuangan' => $post->lokasiRuangan,
     'urlGambarRuangan' => $post->urlGambarRuangan,
     'kapasitasRuangan' => $post->kapasitasRuangan,
-    'idBooking' => $post->idBooking
   );
 
   // Make JSON

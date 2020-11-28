@@ -91,8 +91,8 @@
         // Get Posts
        public function read() {
           // Create query
-          $query = 'SELECT r.namaRuangan, r.idRuangan, r.deskripsiRuangan, r.hargaRuangan, r.lokasiRuangan, r.urlGambarRuangan, r.kapasitasRuangan, i.idBooking
-                                    FROM ' . $this->table . ' r JOIN infobooking i ON r.idRuangan = i.idRuangan
+          $query = 'SELECT r.namaRuangan, r.idRuangan, r.deskripsiRuangan, r.hargaRuangan, r.lokasiRuangan, r.urlGambarRuangan, r.kapasitasRuangan
+                                    FROM ' . $this->table . ' r 
                                     ORDER BY
                                       idRuangan ASC';
           
@@ -108,8 +108,8 @@
         // Get Single Post
         public function read_single() {
               // Create query
-              $query = 'SELECT r.namaRuangan,r.idRuangan, r.deskripsiRuangan, r.hargaRuangan, r.lokasiRuangan, r.urlGambarRuangan, r.kapasitasRuangan, i.idBooking
-                                        FROM ' . $this->table . ' r JOIN infobooking i ON r.idRuangan = i.idRuangan
+              $query = 'SELECT r.namaRuangan,r.idRuangan, r.deskripsiRuangan, r.hargaRuangan, r.lokasiRuangan, r.urlGambarRuangan, r.kapasitasRuangans
+                                        FROM ' . $this->table . ' r 
                                         WHERE
                                           r.idRuangan = ?
                                         LIMIT 0,1';
@@ -133,7 +133,6 @@
               $this->lokasiRuangan = $row['lokasiRuangan'];
               $this->urlGambarRuangan = $row['urlGambarRuangan'];
               $this->kapasitasRuangan = $row['kapasitasRuangan'];
-              $this->idBooking = $row['idBooking'];
               
         }
       }

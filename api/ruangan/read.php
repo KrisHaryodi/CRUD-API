@@ -35,9 +35,6 @@
         'lokasiRuangan' => $lokasiRuangan,
         'urlGambarRuangan' => $urlGambarRuangan,
         'kapasitasRuangan' => $kapasitasRuangan,
-        $post_item = array(
-        'idBooking' => $idBooking,
-        )
       );
 
       // Push to "data"
