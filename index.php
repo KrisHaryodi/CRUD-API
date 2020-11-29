@@ -27,6 +27,7 @@
             <div class="row justify-content-center">
                 <table class="table">
                     <thead>
+                        <h3>Room</h3>
                         <tr>
                             <th>Id</th>
                             <th>Nama Ruangan</th>
@@ -50,7 +51,7 @@
                 <td><?php echo $row['urlGambarRuangan'];?></td>
                 <td>
                     <a href="index.php?edit=<?php echo $row['idRuangan'];?>" class="btn btn-info">Edit</a>
-                    <a href="process.php?delete=<?php echo $row['idRuangan'];?>" class="btn btn-danger">Delete</a>
+                    <a href="ruangan.php?delete=<?php echo $row['idRuangan'];?>" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             <?php endwhile; ?>
@@ -99,9 +100,58 @@
                     <?php else :?>
                     <button type="submit" class="btn btn-primary" name="save">Save</button>
                     <?php endif; ?>
+                    <br>
+                    <br>
                 </div>
             </form>
+            </div>
+        <hr style="width: 100%; border: 1px solid black;"> 
+        <br>
+        <?php require_once 'Post.php'; ?>
+
+        <div class="container">
+        <?php
+            $mysqli = new mysqli('localhost','root','','all_users');
+            $result = $mysqli->query("SELECT * FROM infobooking");
+        ?>
+            <div class="row justify-content-center">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id Booking</th>
+                            <th>Id Ruangan</th>
+                            <th>Id User </th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Year</th>
+                            <th>Month</th>
+                            <th>Date</th>
+                            <th>Cost</th>
+                            <th colspan="1">Action</th>
+                        </tr>
+                    </thead>
+        <?php
+            while ($row = $result->fetch_assoc()): ?>          
+            <h3>Booking</h3>
+            <tr>
+                <td><?php echo $row['idBooking'];?></td>
+                <td><?php echo $row['idRuangan'];?></td>
+                <td><?php echo $row['idUser'];?></td>
+                <td><?php echo $row['waktuMulai'];?></td>
+                <td><?php echo $row['waktuSelesai'];?></td>
+                <td><?php echo $row['tahunBooking'];?></td>
+                <td><?php echo $row['bulanBooking'];?></td>
+                <td><?php echo $row['tanggalBooking'];?></td>
+                <td><?php echo $row['hargaTotal'];?></td>
+                <td>
+                    <a href="Post.php?delete=<?php echo $row['idBooking'];?>" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            <?php endwhile; ?>
+                </table>
+            </div>
         </div>
-        </div>
+        <br>
+        <br>
     </body>
 </html>

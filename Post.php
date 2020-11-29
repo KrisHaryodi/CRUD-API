@@ -1,4 +1,27 @@
 <?php 
+$mysqli = new mysqli('localhost','root','','all_users');
+
+$idBooking =0;
+$update = false;
+$idRuangan = '';
+$idUser = '';
+$waktuMulai = '';
+$waktuSelesai = '';
+$tahunBooking = '';
+$bulanBooking = '';
+$tanggalBooking = '';
+$hargaTotal = '';
+
+if (isset($_GET['delete'])){
+  $idBooking = $_GET['delete'];
+  $mysqli->query("DELETE FROM infobooking WHERE idBooking=$idBooking");
+
+  $_SESSION['message'] = "Record has been deleted!";
+  $_SESSION['msg-type'] ="danger";
+
+  header("location: index.php");
+}
+
   class Post {
     // DB stuff
     private $conn;
