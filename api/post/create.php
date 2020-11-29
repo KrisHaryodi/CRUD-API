@@ -1,31 +1,22 @@
 <?php 
 $mysqli = new mysqli('localhost','root','','all_users');
-$idBooking = '';
-$idRuangan = '';
-$idUser = '';
-$waktuMulai = '';
-$waktuSelesai = '';
-$tahunBooking = '';
-$bulanBooking = '';
-$tanggalBooking = '';
-$hargaTotal = '';
+$inputJSON = file_get_contents('php://input');
+$data =json_decode($inputJSON);
 
-if (isset($_POST['save'])){
-$idBooking = $_POST['idBooking'];
-$idRuangan = $_POST['idRuangan'];
-$idUser = $_POST['idUser'];
-$waktuMulai = $_POST['waktuMulai'];
-$waktuSelesai = $_POST['waktuSelesai'];
-$tahunBooking = $_POST['tahunBooking'];
-$bulanBooking = $_POST['bulanBooking'];
-$tanggalBooking = $_POST['tanggalBooking'];
-$hargaTotal = $_POST['hargaTotal'];
+$idBooking = $data->idBooking;
+$idRuangan = $data->idRuangan;
+$idUser = $data->idUser;
+$waktuMulai = $data->waktuMulai;
+$waktuSelesai = $data->waktuSelesai;
+$tahunBooking = $data->tahunBooking;
+$bulanBooking = $data->bulanBooking;
+$tanggalBooking = $data->tanggalBooking;
+$hargaTotal = $data->hargaTotal;
 
-$query = mysqli_query($conn, "INSERT INTO infobooking VALUES ('$idBooking','$idRuangan','$idUser','$waktuMulai','$waktuSelesai','$tahunBooking','$bulanBooking','$tanggalBooking','$hargaTotal')");
+$mysqli->query("INSERT INTO infobooking VALUES ('$idRuangan','$idUser','$waktuMulai','$waktuSelesai','$tahunBooking','$bulanBooking','$tanggalBooking','$hargaTotal')");
 if($query){
     echo json_encode(array('message'=>' data successfully added.'));
   }else{
     echo json_encode(array('message'=>' data failed to add.'));
   }
-}
 ?>
